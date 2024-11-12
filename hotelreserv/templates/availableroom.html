@@ -1,0 +1,14 @@
+ 
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>List of Hotel Rooms</h1>
+
+
+
+{% for room in rooms %}
+<li>Room Number: {{ room.0 }}, Floor: {{ room.1 }}, Bedrooms: {{ room.2 }}, Available: {{ room.3 }}</li>
+{% endfor %}
+
+{% endblock %}

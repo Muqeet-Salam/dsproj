@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome {{name}} </h1>
+
+<form action="checkedout" method ='post'>
+
+    {% csrf_token %}
+
+    Enter Name : <input type="text" name="name"><br>
+    Enter Contact : <input type="text" name="contact"><br>  
+    Room Number : <input type="text" name="rooms"><br>
+    <input type="submit">
+</form>
+
+{% endblock %}

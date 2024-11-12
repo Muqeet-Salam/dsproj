@@ -1,14 +1,18 @@
- 
 {% extends 'base.html' %}
 
 {% block content %}
 
 <h1>List of Hotel Rooms</h1>
 
-
-
+<ul>
 {% for room in rooms %}
-<li>Room Number: {{ room.0 }}, Floor: {{ room.1 }}, Bedrooms: {{ room.2 }}, Available: {{ room.3 }}</li>
+    <li>
+        Room Number: {{ room.number }}, 
+        Floor: {{ room.floor }}, 
+        Bedrooms: {{ room.bedrooms }}, 
+        Status: {% if room.is_available %}Available{% else %}Booked{% endif %}
+    </li>
 {% endfor %}
+</ul>
 
-{% endblock %}
+{% endblock %} 

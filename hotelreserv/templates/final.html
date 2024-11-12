@@ -1,9 +1,22 @@
- 
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>Thank you</h1>
-Your room has been booked on room number and floor number : {{result}}
-
-{% endblock %}
+<div class="container">
+    <h1>Booking Confirmation</h1>
+    {% if result %}
+        <h2>Your room has been booked successfully!</h2>
+        <p>Booking Details:</p>
+        <p>Name: {{ result.name }}</p>
+        <p>Room Number: {{ result.room_number }}</p>
+        <p>Floor Number: {{ result.floor }}</p>
+        <p>Number of Bedrooms: {{ result.bedrooms }}</p>
+        <p>Check-in Date: {{ result.check_in }}</p>
+        <p>Check-out Date: {{ result.check_out }}</p>
+        <p>Contact: {{ result.contact }}</p>
+    {% else %}
+        <p>No booking information available.</p>
+    {% endif %}
+    
+    <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+</div>
+{% endblock %} 

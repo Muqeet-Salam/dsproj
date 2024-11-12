@@ -1,18 +1,15 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Welcome {{name}} </h1>
+<h1>Welcome {{ name }}</h1>
 
-<form action="final" method ='post'>
-
+<form action="{% url 'home' %}" method="post">
     {% csrf_token %}
-
     Enter Name : <input type="text" name="name"><br>
     Enter Contact : <input type="text" name="contact"><br>
     Enter No. of rooms : <input type="text" name="rooms"><br> 
-    Enter Check in Date : <input type="text" name="indate"><br> 
-    Enter Check out Date : <input type="text" name="outdate"><br>   
+    Enter Check-in Date : <input type="date" name="indate"><br> 
+    Enter Check-out Date : <input type="date" name="outdate"><br>   
     <input type="submit">
 </form>
 

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Check Your Reservation</h1>
+
+<form action="{% url 'checkreservation' %}" method="post">
+    {% csrf_token %}
+    Enter Name: <input type="text" name="name" required><br>
+    Enter Contact: <input type="text" name="contact" required><br>
+    <input type="submit" value="Check Reservation">
+</form>
+
+{% if reservation %}
+    <h2>Reservation Details:</h2>
+    <p>Name: {{ reservation.name }}</p>
+    <p>Contact: {{ reservation.contact }}</p>
+    <p>Room Number: {{ reservation.room_number }}</p>
+    <p>Floor: {{ reservation.floor }}</p>
+    <p>Bedrooms: {{ reservation.bedrooms }}</p>
+    <p>Check-in Date: {{ reservation.check_in }}</p>
+    <p>Check-out Date: {{ reservation.check_out }}</p>
+{% elif reservation == None %}
+    <p>No reservation found for the provided details.</p>
+{% endif %}
+
+{% endblock %}

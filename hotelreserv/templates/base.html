@@ -4,80 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Reservation System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background-color: #4c8eaf;
-            color: white;
-
-            padding: 1rem;
-            text-align: center;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-            padding: 2rem;
-        }
-        .section {
-            margin-bottom: 2rem;
-        }
-        footer {
-            background-color: #4c8eaf;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
         <h1>Hotel Reservation System</h1>
         <nav>
             <ul>
-                <li><a href="{% url 'bookroom' %}">Book a Room</a></li>
-                <li><a href="{% url 'availableroom' %}">Available Rooms</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-                <li><a href="{% url 'checkout' %}">Check out</a></li>
+                <li><a href="{% url 'home' %}"><i class="fas fa-book"></i> Book a Room</a></li>
+                <li><a href="{% url 'availableroom' %}"><i class="fas fa-door-open"></i> Available Rooms</a></li>
+                <li><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                <li><a href="{% url 'checkout' %}"><i class="fas fa-sign-out-alt"></i> Check out</a></li>
+                <li><a href="{% url 'checkreservation' %}"><i class="fas fa-search"></i> Check Reservation</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container">
         {% block content %}
-        {% endblock %} 
-
-        <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p>Email: oopproject@gmail.com</p>
-            <p>Phone: #########</p>
-        </section>
+        {% endblock %}
     </div>
 
     <footer>
-        <p>&copy; 2024 Hotel Reservation System</p>
+        <p>&copy; 2024 Hotel Reservation System. All rights reserved.</p>
     </footer>
 </body>
 </html>
